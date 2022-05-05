@@ -6,7 +6,7 @@
 
 html,
 body {
-  background: #000 url('img/bg.jpg') no-repeat center center/cover;
+  background: #000 url("img/bg.jpg") no-repeat center center/cover;
   height: 100vh;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -51,7 +51,7 @@ header img {
   height: 100px;
 }
 
-input[type='text'] {
+.form-control {
   display: block;
   padding: 10px;
   font-size: 20px;
@@ -69,7 +69,6 @@ input[type='text'] {
 }
 
 .card {
-  cursor: pointer;
   background-color: transparent;
   height: 300px;
   perspective: 1000px;
@@ -84,7 +83,7 @@ input[type='text'] {
 
 .card img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -121,6 +120,138 @@ input[type='text'] {
   padding-bottom: 10px;
 }
 
+.info-btn {
+  cursor: pointer;
+  background: #fff;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px;
+  width: 60%;
+  font-size: inherit;
+  letter-spacing: 0.1em;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 45px 0;
+}
+
+.round-effect {
+  background-color: #473e3d;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  line-height: 21px;
+  padding: 10px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.round-effect a {
+  color: #fff;
+}
+
+.round-effect:hover {
+  background: #6e6665;
+}
+.round-effect:hover a {
+  text-decoration: none;
+}
+
+.round-effect.active {
+  background: #797170;
+  border: 2px solid #393333;
+  line-height: 19px;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal.modal-open {
+  display: block;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fefefe;
+  margin: auto;
+  padding: 40px 55px;
+  border: 1px solid #888;
+  width: 54%;
+}
+
+.modal-info {
+  color: #000;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.modal-img {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.modal-header {
+  color: #7d7676;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modal-nickname {
+  color: #908181;
+  letter-spacing: 0.05em;
+}
+
+.info-list {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.list-item {
+  margin: 10px 30px 10px 0;
+}
+
+.list-item b {
+  padding-right: 10px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 9px;
+  top: 4px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media (max-width: 800px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
@@ -128,12 +259,68 @@ input[type='text'] {
 }
 
 @media (max-width: 500px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  .card img {
+  .form-control {
     width: 100%;
-    height: 300px;
-    object-fit: contain;
+  }
+
+  .card {
+    height: 250px;
+  }
+
+  .card img {
+    object-fit: cover;
+  }
+
+  .card:hover .card-inner {
+    transform: none;
+  }
+
+  .modal {
+    padding: 15px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    padding: 30px 15px;
+  }
+
+  .modal-info {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .modal-img {
+    margin-bottom: 15px;
+  }
+
+  .modal-list {
+    border: solid 1px #aaaaaa;
+    padding: 10px;
+  }
+
+  .info-list {
+    font-size: 15px;
+    margin-top: 18px;
+  }
+
+  .list-item {
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: solid 1px rgba(170, 170, 170, 0.5);
+  }
+
+  .list-item:last-child {
+    border-bottom: none;
+  }
+
+  .list-item b {
+    padding-right: 3px;
+  }
+
+  .modal-header,
+  .modal-nickname {
+    text-align: center;
   }
 }

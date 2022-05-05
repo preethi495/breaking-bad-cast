@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const CharacterItem = ({ item }) => {
+const CharacterItem = ({ item, moreInfo }) => {
   return (
-    <div className='card'>
-      <div className='card-inner'>
-        <div className='card-front'>
-          <img src={item.img} alt='' />
+    <div className="card">
+      <div className="card-inner">
+        <div className="card-front">
+          <img src={item.img} alt="" onClick={() => moreInfo(item)} />
         </div>
-        <div className='card-back'>
+        <div className="card-back">
           <h1>{item.name}</h1>
           <ul>
             <li>
@@ -23,10 +23,17 @@ const CharacterItem = ({ item }) => {
               <strong>Status:</strong> {item.status}
             </li>
           </ul>
+          <button
+            type="button"
+            className="info-btn"
+            onClick={() => moreInfo(item)}
+          >
+            More Info!
+          </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CharacterItem
+export default CharacterItem;
